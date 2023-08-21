@@ -1,10 +1,12 @@
-import React from 'react'
-import LoginForm from '../component/login/loginForm'
+import React from "react";
+import LoginForm from "../component/login/loginForm";
+import SingUpForm from "../component/singup/SingUpForm";
 
 const auth = () => {
   return (
-    <LoginForm/>
-  )
-}
+    // <LoginForm/>
+    <SingUpForm />
+  );
+};
 
-export default auth
+export default auth;

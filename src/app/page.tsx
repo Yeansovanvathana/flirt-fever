@@ -1,9 +1,11 @@
+import LoadingPage from "./component/LoadingPage";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen">
       <div>
-        <h1>Hello world</h1>
+        <LoadingPage />
       </div>
     </main>
-  )
+  );
 }
