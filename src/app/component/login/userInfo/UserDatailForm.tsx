@@ -35,7 +35,7 @@ const UserDetailForm = () => {
               <UserCircleIcon className="icon" />
               <input
                 type="text"
-                placeholder="Enter your email"
+                placeholder="Enter your username"
                 className="outline-none w-full bg-transparent text-sm"
               />
               <QuestionMarkCircleIcon className="icon" />
@@ -43,8 +43,8 @@ const UserDetailForm = () => {
             <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
               <EnvelopeIcon className="icon" />
               <input
-                type="password"
-                placeholder="Enter your password"
+                type="text"
+                placeholder="Enter your email"
                 className="outline-none w-full bg-transparent text-sm"
               />
               <QuestionMarkCircleIcon className="icon" />
