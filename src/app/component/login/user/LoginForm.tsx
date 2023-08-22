@@ -50,9 +50,9 @@ const LoginForm = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold">
-                <button>Log in</button>
-              </div>
+              <button className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold">
+                Log in
+              </button>
               <p className="text-center text-sm text-AuroMetalSaurus-500 tracking-wider">
                 Don't you have an account?{" "}
                 <span

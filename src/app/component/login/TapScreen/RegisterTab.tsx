@@ -6,7 +6,7 @@ const RegisterTab = () => {
   const activeTab = useRecoilValue(activeTabState);
   console.log(activeTab);
   return (
-    <div className="absolute bottom-10 flex space-x-3 items-center left-1/2 transform -translate-x-1/2">
+    <div className="absolute bottom-8 hidden md:flex space-x-3 items-center left-1/2 transform -translate-x-1/2">
       <div
         className={`${
           activeTab === "userDetailTab" ? "w-16 " : "w-3"

@@ -21,7 +21,7 @@ const GenderInfo = () => {
   };
   return (
     <div className="flex justify-center items-center px-5">
-      <div className="flex flex-col justify-evenly h-screen py-12 max-w-md">
+      <div className="flex flex-col justify-evenly h-screen py-12 max-w-sm">
         <div className="space-y-6">
           <h1 className="text-center font-semibold text-lg md:text-xl">
             Set up your information
@@ -58,7 +58,7 @@ const GenderInfo = () => {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 pt-10">
           <div>
             <button
               className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold"
