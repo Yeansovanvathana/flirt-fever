@@ -4,7 +4,7 @@ import {
   QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useRecoilState } from "recoil";
-import { activeTabState } from "../../recoil/atom";
+import { activeTabState } from "../../../../service/recoil";
 
 const DateInfo = () => {
   const [activeTab, setActiveTab] = useRecoilState(activeTabState);

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { activeTabState } from "../../recoil/atom";
+import { activeTabState } from "../../../../service/recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 import UserDetailForm from "../userInfo/UserDatailForm";
 import VerifyOtp from "../userInfo/VerifyOtp";

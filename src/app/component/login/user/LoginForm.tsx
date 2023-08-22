@@ -1,13 +1,23 @@
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { useRecoilState } from "recoil";
+import { activeFormState } from "@/service/recoil";
+import Link from "next/link";
 
 const LoginForm = () => {
+  const [formState, setFormState] = useRecoilState(activeFormState);
+  const handleChange = () => {
+    setFormState("register");
+  };
+  // console.log(formState);
   return (
-    <div className="flex justify-between">
-      <div className="bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 w-[50%] hidden md:flex md:items-center md:justify-center">
-        <img src="/FlirtFeverLogo.png" className="w-[600px]" />
+    <div className="flex h-screen">
+      <div className="bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 w-1/2 h-full hidden md:flex md:items-center md:justify-center">
+        <Link href="/">
+          <img src="/FlirtFeverLogo.png" className="w-[600px]" />
+        </Link>
       </div>
-      <div className="w-full md:w-[50%]">
+      <div className="w-full md:w-1/2 h-full">
         <div className="flex justify-center items-center px-5">
           <div className="flex flex-col justify-evenly h-screen py-12">
             <div className="space-y-6">
@@ -43,17 +53,20 @@ const LoginForm = () => {
               <div className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold">
                 <button>Log in</button>
               </div>
-              <p className="text-center text-sm text-AuroMetalSaurus-500">
+              <p className="text-center text-sm text-AuroMetalSaurus-500 tracking-wider">
                 Don't you have an account?{" "}
-                <span className="text-BrinkPink-500 cursor-pointer">
+                <span
+                  onClick={handleChange}
+                  className="text-BrinkPink-500 cursor-pointer font-medium"
+                >
                   Sign Up
                 </span>
               </p>
               <p className="text-sm max-w-sm text-AuroMetalSaurus-500 text-center">
                 By providing your data, you agree to our{" "}
-                <span className="text-AuroMetalSaurus-800 cursor-pointer">
+                <button className="text-AuroMetalSaurus-800 cursor-pointer">
                   Terms of Service
-                </span>{" "}
+                </button>{" "}
                 and{" "}
                 <span className="text-AuroMetalSaurus-800 cursor-pointer">
                   Privacy Policy

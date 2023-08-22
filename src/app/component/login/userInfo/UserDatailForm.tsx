@@ -7,11 +7,14 @@ import {
 } from "@heroicons/react/24/outline";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { useRecoilState } from "recoil";
-import { activeTabState } from "../../recoil/atom";
+import { activeFormState, activeTabState } from "../../../../service/recoil";
 
 const UserDetailForm = () => {
   const [activeTab, setActiveTab] = useRecoilState(activeTabState);
-
+  const [formState, setFormState] = useRecoilState(activeFormState);
+  const handleChange = () => {
+    setFormState("login");
+  };
   const handleSubmit = () => {
     setActiveTab("verifyOtpTab");
   };
@@ -83,6 +86,15 @@ const UserDetailForm = () => {
           >
             Continue
           </button>
+          <p className="text-center text-sm text-AuroMetalSaurus-500 tracking-wider">
+            Already have an account?{" "}
+            <span
+              onClick={handleChange}
+              className="text-BrinkPink-500 cursor-pointer font-medium"
+            >
+              Login
+            </span>
+          </p>
           <p className="text-sm max-w-sm text-AuroMetalSaurus-500 text-center">
             By providing your data, you agree to our{" "}
             <span className="text-AuroMetalSaurus-800 cursor-pointer">
