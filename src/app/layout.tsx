@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import RecoidContextProvider from "./recoilContextProvider";
 
 export const metadata: Metadata = {
   title: "Flirt Fever",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/FlirtFeverIconPri.png" sizes="any" />
-      <body>{children}</body>
+      <body>
+        <RecoidContextProvider>{children}</RecoidContextProvider>
+      </body>
     </html>
   );
 }
