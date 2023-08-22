@@ -42,6 +42,7 @@ function OtpInput({ submit, onOtpSubmit }: OtpInputProps) {
             type="text"
             id={`pin-${index}`}
             className="outline-none bg-transparent text-sm w-12 text-center"
+            // placeholder="0"
             maxLength={1}
             value={pin}
             onChange={(e) => handleChange(index, e.target.value)}
