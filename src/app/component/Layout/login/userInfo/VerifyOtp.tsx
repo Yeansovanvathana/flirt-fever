@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useRecoilState } from "recoil";
-import { activeTabState } from "../../../../service/recoil";
+import { activeTabState } from "../../../../../service/recoil";
 import OtpInput from "../OtpInput";
 
 const VerifyOtp = () => {
