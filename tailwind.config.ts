@@ -77,6 +77,10 @@ const config: Config = {
           50: "#F04438",
           100: "#DA3E33",
         },
+        interesting: {
+          50: "#17B26A",
+          100: "#45C188",
+        },
         Fire: {
           50: "#2E90FA",
           100: "#155EEF",
