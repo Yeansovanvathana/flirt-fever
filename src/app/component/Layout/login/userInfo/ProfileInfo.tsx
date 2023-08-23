@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { activeTabState } from "../../../../service/recoil";
+import { activeTabState } from "../../../../../service/recoil";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -54,7 +54,7 @@ const ProfileInfo = () => {
                   placeholder="Your Height"
                   className="outline-none bg-transparent text-sm w-[80%]"
                 />
-                <QuestionMarkCircleIcon className="icon" />
+                <QuestionMarkCircleIcon className="icon md:w-6" />
               </div>
               <div className="py-2.5 px-5 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center justify-between text-AuroMetalSaurus-400">
                 <input
@@ -62,14 +62,14 @@ const ProfileInfo = () => {
                   placeholder="Your Weight"
                   className="outline-none bg-transparent text-sm w-[80%]"
                 />
-                <QuestionMarkCircleIcon className="icon" />
+                <QuestionMarkCircleIcon className="icon md:w-6" />
               </div>
               <div className="col-span-2 p-3 border-2 border-AuroMetalSaurus-100 rounded-3xl flex text-AuroMetalSaurus-400">
                 <textarea
                   placeholder="Enter your bio"
                   className="outline-none bg-transparent text-sm w-full h-20"
                 ></textarea>
-                <QuestionMarkCircleIcon className="icon" />
+                <QuestionMarkCircleIcon className="icon md:w-6" />
               </div>
             </div>
           </div>

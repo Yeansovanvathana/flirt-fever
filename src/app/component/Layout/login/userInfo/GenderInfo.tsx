@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { activeTabState } from "../../../../service/recoil";
+import { activeTabState } from "../../../../../service/recoil";
 
 const GenderInfo = () => {
   const [activeTab, setActiveTab] = useRecoilState(activeTabState);
