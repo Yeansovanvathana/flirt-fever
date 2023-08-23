@@ -32,7 +32,7 @@ const RegisterMainScreen = () => {
   return (
     <div>
       {renderContent()}
-      <div className="basis-4/6 relative flex">
+      <div className="basis-4/6 relative flex ">
         <RegisterTab />
       </div>
     </div>
