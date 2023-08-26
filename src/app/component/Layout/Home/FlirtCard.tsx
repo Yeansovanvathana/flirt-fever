@@ -9,7 +9,7 @@ const DynamicTinderCard = dynamic(() => import("react-tinder-card"), {
   ssr: false, // Prevent SSR
 });
 
-const HomeLayout = () => {
+const FlirtCard = () => {
   return (
     <div className="flex justify-center items-center w-screen h-screen">
       <div className="mt-20 relative flex justify-center items-center">
@@ -23,7 +23,7 @@ const HomeLayout = () => {
               style={{
                 backgroundImage: `url(${character.img})`,
               }}
-              className="relative w-[300px] max-w-sm h-[450px] rounded-3xl shadow-md bg-cover bg-center"
+              className="relative w-[350px] max-w-sm h-[650px] rounded-2xl shadow-md bg-cover bg-center"
             >
               <div className="w-full h-full absolute bg-gradient-to-t from-AuroMetalSaurus-800 rounded-3xl"></div>
 
@@ -42,13 +42,13 @@ const HomeLayout = () => {
                   ))}
                 </div>
                 <div className="mt-5 flex justify-between">
-                  <button className="py-2 px-7 md:py-1.5 md:px-6 hover rounded-3xl bg-gradient-to-r from-Uninteresting-50 to-Uninteresting-100 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
+                  <button className="py-2 px-9 md:py-1.5 md:px-8 hover rounded-3xl bg-gradient-to-r from-Uninteresting-50 to-Uninteresting-100 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
                     <XMarkIcon className="icon" />
                   </button>
-                  <button className="py-2 px-7 md:py-1.5 md:px-6 hover rounded-3xl bg-gradient-to-r from-Fire-50 to-Fire-100  text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
-                    <img src="/fi-rr-flame.png" className="icon" />
+                  <button className="py-2 px-9 md:py-1.5 md:px-8 hover rounded-3xl bg-gradient-to-r from-Fire-50 to-Fire-100  text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
+                    <img src="icons/fi-rr-flame.png" className="icon" />
                   </button>
-                  <button className="py-2 px-7 md:py-1.5 md:px-6 hover rounded-3xl bg-gradient-to-r from-interesting-50 to-interesting-100 text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
+                  <button className="py-2 px-9 md:py-1.5 md:px-8 hover rounded-3xl bg-gradient-to-r from-interesting-50 to-interesting-100 text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
                     <HeartIcon className="icon text-white" />
                   </button>
                 </div>
@@ -61,4 +61,4 @@ const HomeLayout = () => {
   );
 };
 
-export default HomeLayout;
+export default FlirtCard;
