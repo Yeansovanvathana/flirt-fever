@@ -25,7 +25,7 @@ const FlirtCard = () => {
               }}
               className="relative w-[350px] max-w-sm h-[650px] rounded-2xl shadow-md bg-cover bg-center"
             >
-              <div className="w-full h-full absolute bg-gradient-to-t from-AuroMetalSaurus-800 rounded-3xl"></div>
+              <div className="w-full h-full absolute bg-gradient-to-t from-AuroMetalSaurus-800 rounded-2xl"></div>
 
               <div className="absolute text-white bottom-0 w-full p-6">
                 <h3 className="text-xl font-semibold">{character.name}</h3>
