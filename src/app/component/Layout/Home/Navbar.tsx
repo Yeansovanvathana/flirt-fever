@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   const user = "";
   return (
-    <nav className="fixed top-0 py-5 px-2 max-auto w-full border-b-[1px]">
+    <nav className="top-0 py-5 px-2 max-auto border-b-[1px] w-screen">
       <div className="flex items-center justify-between mx-auto max-w-screen-2xl px-4">
         <div>
           <img src="logo/Primary Logo.svg" alt="" />
