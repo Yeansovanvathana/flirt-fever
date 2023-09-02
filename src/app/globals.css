@@ -7,12 +7,15 @@
         @apply w-5 h-5 md:w-7 md:h-7;
     }
     .iconMenu {
-        @apply w-6 h-6 md:w-6 md:h-6;
+        @apply w-6 h-6 md:w-6 md:h-6 text-AuroMetalSaurus-600 fill-current;
     }
     .button {
         @apply py-2.5 px-5 text-sm text-AuroMetalSaurus-500 focus:outline-none rounded-full border border-AuroMetalSaurus-100 hover:bg-gradient-to-r hover:from-Gradient1-50 hover:to-Gradient1-100 hover:text-white hover:font-medium 
     }
     .active {
         @apply z-10 bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 text-white font-medium
+    }
+    .hoverButton {
+        @apply: 
     }
 }
