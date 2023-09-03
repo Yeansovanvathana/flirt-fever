@@ -7,7 +7,7 @@ import { useRecoilState } from "recoil";
 import { activeTabState } from "../../../../../service/recoil";
 
 const DateInfo = () => {
-  const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+  const [_, setActiveTab] = useRecoilState(activeTabState);
   const handleSubmit = () => {
     setActiveTab("genderInfoTab");
   };

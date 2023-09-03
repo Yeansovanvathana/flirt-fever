@@ -10,8 +10,8 @@ import { useRecoilState } from "recoil";
 import { activeFormState, activeTabState } from "../../../../../service/recoil";
 
 const UserDetailForm = () => {
-  const [activeTab, setActiveTab] = useRecoilState(activeTabState);
-  const [formState, setFormState] = useRecoilState(activeFormState);
+  const [_, setActiveTab] = useRecoilState(activeTabState);
+  const [__, setFormState] = useRecoilState(activeFormState);
   const handleChange = () => {
     setFormState("login");
   };

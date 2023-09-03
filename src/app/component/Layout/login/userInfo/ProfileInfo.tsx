@@ -6,7 +6,7 @@ import { PencilIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const ProfileInfo = () => {
-  const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+  const [_, setActiveTab] = useRecoilState(activeTabState);
   const handleSubmit = () => {
     setActiveTab("userDetailTab");
   };

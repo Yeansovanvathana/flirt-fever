@@ -5,7 +5,7 @@ import { activeTabState } from "../../../../../service/recoil";
 import OtpInput from "../OtpInput";
 
 const VerifyOtp = () => {
-  const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+  const [_, setActiveTab] = useRecoilState(activeTabState);
   const [submitted, setSubmitted] = useState(false);
   const [enteredOtp, setEnteredOtp] = useState("");
 
