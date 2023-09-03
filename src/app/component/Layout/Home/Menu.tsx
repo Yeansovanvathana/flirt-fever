@@ -51,7 +51,9 @@ const Menu = () => {
           className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
           onClick={handleChatPage}
         >
-          <ChatSvg />
+          <div className="bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 w-14 h-14 rounded-full flex justify-center items-center">
+            <ChatSvg />
+          </div>
         </button>
         <button
           className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"

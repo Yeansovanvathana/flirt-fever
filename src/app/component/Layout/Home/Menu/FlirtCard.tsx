@@ -4,6 +4,8 @@ import { People } from "@/utils/People";
 import dynamic from "next/dynamic";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import NotificationSvg from "@/app/component/icon/NotificationSvg";
+import ChatSvg from "@/app/component/icon/ChatSvg";
 
 const DynamicTinderCard = dynamic(() => import("react-tinder-card"), {
   ssr: false, // Prevent SSR
@@ -46,7 +48,7 @@ const FlirtCard = () => {
                     <XMarkIcon className="icon" />
                   </button>
                   <button className="py-2 px-7 md:py-1.5 md:px-6 hover rounded-3xl bg-gradient-to-r from-Fire-50 to-Fire-100  text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
-                    <img src="icons/fi-rr-flame.png" className="icon" />
+                    <ChatSvg />
                   </button>
                   <button className="py-2 px-7 md:py-1.5 md:px-6 hover rounded-3xl bg-gradient-to-r from-interesting-50 to-interesting-100 text-AuroMetalSaurus-500 border-spacing-1 shadow drop-shadow-md font-medium transition ease-in-out delay-50  hover:-translate-y-0.5 hover:scale-105 duration-300">
                     <HeartIcon className="icon text-white" />
