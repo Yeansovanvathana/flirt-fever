@@ -9,3 +9,8 @@ export const activeFormState = atom({
   key: "activeForm",
   default: "login",
 });
+
+export const activeTabMenu = atom({
+  key: "activeTabMenu",
+  default: "homePage",
+});

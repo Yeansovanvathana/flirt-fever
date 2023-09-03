@@ -5,6 +5,7 @@ import RecoidContextProvider from "./recoilContextProvider";
 export const metadata: Metadata = {
   title: "Flirt Fever",
   description: "dating application",
+  icons: "/logo/FlirtFeverIconPri.png",
 };
 
 export default function RootLayout({
@@ -14,7 +15,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/FlirtFeverIconPri.png" sizes="any" />
       <body>
         <RecoidContextProvider>{children}</RecoidContextProvider>
       </body>

@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import { activeTabState } from "../../../../../service/recoil";
 
 const GenderInfo = () => {
-  const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+  const [_, setActiveTab] = useRecoilState(activeTabState);
 
   const [activeButton, setActiveButton] = useState("Male");
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);

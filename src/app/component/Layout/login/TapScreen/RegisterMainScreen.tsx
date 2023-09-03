@@ -2,7 +2,7 @@
 
 import React from "react";
 import { activeTabState } from "../../../../../service/recoil";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import UserDetailForm from "../userInfo/UserDatailForm";
 import VerifyOtp from "../userInfo/VerifyOtp";
 import DateInfo from "../userInfo/DateInfo";

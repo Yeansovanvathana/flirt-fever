@@ -1,70 +1,71 @@
-import React from "react";
+"use client";
 
+import React from "react";
+import { activeTabMenu } from "@/service/recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import HomeSvg from "../../icon/HomeSvg";
+import PostSvg from "../../icon/PostSvg";
+import ChatSvg from "../../icon/ChatSvg";
+import NotificationSvg from "../../icon/NotificationSvg";
+import ProfileSvg from "../../icon/ProfileSvg";
 const Menu = () => {
+  const [__, setActiveTab] = useRecoilState(activeTabMenu);
+  const activeTab = useRecoilValue(activeTabMenu);
+
+  const handleHomePage = () => {
+    setActiveTab("homePage");
+  };
+
+  const handlePostPage = () => {
+    setActiveTab("postPage");
+  };
+
+  const handleChatPage = () => {
+    setActiveTab("chatPage");
+  };
+
+  const handleNotificationPage = () => {
+    setActiveTab("notificationPage");
+  };
+
+  const handleProfilePage = () => {
+    setActiveTab("profilePage");
+  };
+
   return (
     <nav className="fixed z-40 bottom-0 py-5 px-2 max-auto w-screen ">
       <div className="flex items-center justify-around mx-auto max-w-screen-sm px-4">
-        <button className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="Layer_1"
-            data-name="Layer 1"
-            viewBox="0 0 24 24"
-            width="512"
-            height="512"
-            className="iconMenu"
-          >
-            <path d="M19,24H5c-2.757,0-5-2.243-5-5V9.724c0-1.665,.824-3.215,2.204-4.145L9.203,.855c1.699-1.146,3.895-1.146,5.594,0l7,4.724c1.379,.93,2.203,2.479,2.203,4.145v9.276c0,2.757-2.243,5-5,5ZM12,1.997c-.584,0-1.168,.172-1.678,.517L3.322,7.237c-.828,.558-1.322,1.487-1.322,2.486v9.276c0,1.654,1.346,3,3,3h14c1.654,0,3-1.346,3-3V9.724c0-.999-.494-1.929-1.321-2.486L13.678,2.514c-.51-.345-1.094-.517-1.678-.517Z" />
-          </svg>
+        <button
+          className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
+          onClick={handleHomePage}
+        >
+          <HomeSvg />
         </button>
-        <button className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="Outline"
-            viewBox="0 0 24 24"
-            width="512"
-            height="512"
-            className="iconMenu"
-          >
-            <path d="M23.119.882a2.966,2.966,0,0,0-2.8-.8l-16,3.37a4.995,4.995,0,0,0-2.853,8.481L3.184,13.65a1,1,0,0,1,.293.708v3.168a2.965,2.965,0,0,0,.3,1.285l-.008.007.026.026A3,3,0,0,0,5.157,20.2l.026.026.007-.008a2.965,2.965,0,0,0,1.285.3H9.643a1,1,0,0,1,.707.292l1.717,1.717A4.963,4.963,0,0,0,15.587,24a5.049,5.049,0,0,0,1.605-.264,4.933,4.933,0,0,0,3.344-3.986L23.911,3.715A2.975,2.975,0,0,0,23.119.882ZM4.6,12.238,2.881,10.521a2.94,2.94,0,0,1-.722-3.074,2.978,2.978,0,0,1,2.5-2.026L20.5,2.086,5.475,17.113V14.358A2.978,2.978,0,0,0,4.6,12.238Zm13.971,7.17a3,3,0,0,1-5.089,1.712L11.762,19.4a2.978,2.978,0,0,0-2.119-.878H6.888L21.915,3.5Z" />
-          </svg>
+        <button
+          className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
+          onClick={handlePostPage}
+        >
+          <PostSvg />
         </button>
-        <button className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300">
+        <button
+          className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
+          onClick={handleChatPage}
+        >
           <div className="bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 w-14 h-14 rounded-full flex justify-center items-center">
-            <svg
-              viewBox="0 0 512 512"
-              className="iconMenu text-white"
-              width="512"
-              height="512"
-            >
-              <path d="M354.773,61.867c-16.789-14.229-34.389-29.184-52.309-45.483C288.717,3.882,270.151-1.912,251.733,0.555  c-17.848,2.358-33.728,12.517-43.349,27.733c-25.43,42.496-43.41,89.025-53.163,137.579c-3.827-5.526-7.222-11.338-10.155-17.387  c-10.104-21.288-35.552-30.355-56.84-20.251c-5.154,2.446-9.765,5.901-13.56,10.16c-35.783,36.566-55.62,85.821-55.168,136.981  c-1.017,107.532,71.314,201.943,175.403,228.95c19.367,4.873,39.251,7.394,59.221,7.509c0.64,0,7.445-0.064,10.197-0.256  c127.36-4.125,228.426-108.648,228.267-236.075C492.501,178.859,428.672,124.672,354.773,61.867z M253.589,469.013  c-15.877-1.208-31.567-7.639-43.413-17.195c-18.55-13.126-30.825-32.374-33.749-54.549c-3.627-34.603,17.707-79.851,61.291-130.965  l0,0c4.57-5.338,11.256-8.397,18.283-8.363l0,0c6.936-0.05,13.532,3.001,17.984,8.32c39.936,47.403,61.867,91.136,61.867,123.157  c-0.123,42.07-33.006,75.35-74.88,79.403C259.133,468.999,256,469.269,253.589,469.013z M374.955,428.437  c-1.259,0.981-2.645,1.771-3.925,2.709c4.922-13.378,7.457-27.516,7.488-41.771c0-53.909-39.147-111.68-71.957-150.656  c-12.553-14.867-31.017-23.451-50.475-23.467H256c-19.497-0.035-38.028,8.49-50.688,23.317l0,0  c-52.16,61.099-76.117,115.989-71.211,163.157c1.165,10.95,3.962,21.664,8.299,31.787c-50.658-36.706-80.507-95.587-80.171-158.144  c-0.412-40.639,15.614-79.721,44.437-108.373c4.921,10.23,10.83,19.954,17.643,29.035c9.357,12.65,25.342,18.52,40.661,14.933  c15.619-3.455,27.746-15.774,30.955-31.445c8.571-45.304,24.95-88.774,48.405-128.469c2.886-4.538,7.653-7.544,12.992-8.192  c5.967-0.803,11.982,1.08,16.427,5.141c18.304,16.64,36.267,32,53.333,46.443c71.211,60.48,122.688,104.171,122.688,181.056  c0.184,59.833-27.436,116.358-74.752,152.981L374.955,428.437z" />
-            </svg>
+            <ChatSvg />
           </div>
         </button>
-        <button className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="Outline"
-            viewBox="0 0 24 24"
-            width="512"
-            height="512"
-            className="iconMenu"
-          >
-            <path d="M22.555,13.662l-1.9-6.836A9.321,9.321,0,0,0,2.576,7.3L1.105,13.915A5,5,0,0,0,5.986,20H7.1a5,5,0,0,0,9.8,0h.838a5,5,0,0,0,4.818-6.338ZM12,22a3,3,0,0,1-2.816-2h5.632A3,3,0,0,1,12,22Zm8.126-5.185A2.977,2.977,0,0,1,17.737,18H5.986a3,3,0,0,1-2.928-3.651l1.47-6.616a7.321,7.321,0,0,1,14.2-.372l1.9,6.836A2.977,2.977,0,0,1,20.126,16.815Z" />
-          </svg>
+        <button
+          className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
+          onClick={handleNotificationPage}
+        >
+          <NotificationSvg />
         </button>
-        <button className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="Outline"
-            viewBox="0 0 24 24"
-            width="512"
-            height="512"
-            className="iconMenu"
-          >
-            <path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z" />
-            <path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z" />
-          </svg>
+        <button
+          className="transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-105 duration-300"
+          onClick={handleProfilePage}
+        >
+          <ProfileSvg />
         </button>
       </div>
     </nav>
