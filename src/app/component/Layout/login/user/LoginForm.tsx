@@ -3,11 +3,24 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import { activeFormState } from "@/service/recoil";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
-  const [formState, setFormState] = useRecoilState(activeFormState);
+  const [_, setFormState] = useRecoilState(activeFormState);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors);
+
   const handleChange = () => {
     setFormState("register");
+  };
+
+  const submitForm = (data: any) => {
+    console.log(data);
   };
   // console.log(formState);
   return (
@@ -17,7 +30,10 @@ const LoginForm = () => {
           <img src="logo/FlirtFeverLogo.png" className="w-[600px]" />
         </Link>
       </div>
-      <div className="w-full md:w-1/2 h-full">
+      <form
+        className="w-full md:w-1/2 h-full"
+        onSubmit={handleSubmit(submitForm)}
+      >
         <div className="flex justify-center items-center px-5">
           <div className="flex flex-col justify-evenly h-screen py-12">
             <div className="space-y-6">
@@ -36,6 +52,7 @@ const LoginForm = () => {
                     type="text"
                     placeholder="Enter your email"
                     className="outline-none w-full bg-transparent text-sm"
+                    {...register("email", { required: "email is required" })}
                   />
                 </div>
                 <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
@@ -44,13 +61,19 @@ const LoginForm = () => {
                     type="password"
                     placeholder="Enter your password"
                     className="outline-none w-full bg-transparent text-sm"
+                    {...register("password", {
+                      required: "password is required",
+                    })}
                   />
                 </div>
               </div>
             </div>
 
             <div className="space-y-4">
-              <button className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold">
+              <button
+                type="submit"
+                className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold"
+              >
                 Log in
               </button>
               <p className="text-center text-sm text-AuroMetalSaurus-500 tracking-wider">
@@ -76,7 +99,7 @@ const LoginForm = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
