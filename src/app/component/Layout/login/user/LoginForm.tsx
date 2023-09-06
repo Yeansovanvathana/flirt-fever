@@ -4,6 +4,8 @@ import { useRecoilState } from "recoil";
 import { activeFormState } from "@/service/recoil";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { loginApi } from "@/service/axios/api";
+import { userCredentialParam } from "@/utils/type";
 
 const LoginForm = () => {
   const [_, setFormState] = useRecoilState(activeFormState);
@@ -11,7 +13,7 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<userCredentialParam>();
 
   console.log(errors);
 
@@ -19,8 +21,13 @@ const LoginForm = () => {
     setFormState("register");
   };
 
-  const submitForm = (data: any) => {
+  const submitForm = async (data: userCredentialParam) => {
     console.log(data);
+    try {
+      await loginApi(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   // console.log(formState);
   return (
