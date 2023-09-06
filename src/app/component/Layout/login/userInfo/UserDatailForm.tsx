@@ -53,37 +53,64 @@ const UserDetailForm = () => {
           </p>
 
           <div className="space-y-5 pt-10">
-            <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
-              <UserCircleIcon className="icon" />
-              <input
-                type="text"
-                placeholder="Enter your username"
-                className="outline-none w-full bg-transparent text-sm"
-                {...register("username", { required: "username is required" })}
-              />
-              <QuestionMarkCircleIcon className="icon" />
+            <div>
+              <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
+                <UserCircleIcon className="icon" />
+                <input
+                  type="text"
+                  placeholder="Enter your username"
+                  className="outline-none w-full bg-transparent text-sm"
+                  {...register("username", {
+                    required: "username is required",
+                  })}
+                />
+                <QuestionMarkCircleIcon className="icon" />
+              </div>
+              {errors.username && (
+                <p className="pl-4 text-red-500 text-sm mt-2">
+                  {errors.username.message}
+                </p>
+              )}
             </div>
-            <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
-              <EnvelopeIcon className="icon" />
-              <input
-                type="text"
-                placeholder="Enter your email"
-                className="outline-none w-full bg-transparent text-sm"
-                {...register("email", { required: "email is required" })}
-              />
-              <QuestionMarkCircleIcon className="icon" />
+            <div>
+              <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
+                <EnvelopeIcon className="icon" />
+                <input
+                  type="text"
+                  placeholder="Enter your email"
+                  className="outline-none w-full bg-transparent text-sm"
+                  {...register("email", { required: "email is required" })}
+                />
+                <QuestionMarkCircleIcon className="icon" />
+              </div>
+              {errors.email && (
+                <p className="pl-4 text-red-500 text-sm mt-2">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
-            <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
-              <LockClosedIcon className="icon" />
-              <input
-                type="password"
-                placeholder="Enter your password"
-                className="outline-none w-full bg-transparent text-sm"
-                {...register("password", { required: "password is required" })}
-              />
-              <QuestionMarkCircleIcon className="icon" />
+
+            <div>
+              <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
+                <LockClosedIcon className="icon" />
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  className="outline-none w-full bg-transparent text-sm"
+                  {...register("password", {
+                    required: "password is required",
+                  })}
+                />
+                <QuestionMarkCircleIcon className="icon" />
+              </div>
+              {errors.password && (
+                <p className="pl-4 text-red-500 text-sm mt-2">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
-            <div className="space-y-2">
+
+            {/* <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm">
                 <div className="w-5 h-5 bg-BrinkPink-500 rounded-full">
                   <CheckIcon className="p-[2px] text-white" />
@@ -100,7 +127,7 @@ const UserDetailForm = () => {
                   Must contain one special character
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
