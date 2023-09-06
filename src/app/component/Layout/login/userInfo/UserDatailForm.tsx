@@ -9,6 +9,8 @@ import { CheckIcon } from "@heroicons/react/24/solid";
 import { useRecoilState } from "recoil";
 import { activeFormState, activeTabState } from "../../../../../service/recoil";
 import { useForm } from "react-hook-form";
+import { createUserParam } from "@/utils/type";
+import { registerApi } from "@/service/axios/api";
 
 const UserDetailForm = () => {
   const [_, setActiveTab] = useRecoilState(activeTabState);
@@ -18,15 +20,20 @@ const UserDetailForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-
+  } = useForm<createUserParam>();
   const handleChange = () => {
     setFormState("login");
   };
   console.log(errors);
-  const onSubmit = (data: any) => {
+
+  const onSubmit = async (data: createUserParam) => {
     console.log(data);
-    setActiveTab("verifyOtpTab");
+    try {
+      await registerApi(data);
+      setActiveTab("verifyOtpTab");
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -99,7 +106,7 @@ const UserDetailForm = () => {
         <div className="space-y-4 pt-10">
           <button
             className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold"
-            onClick={onSubmit}
+            // onClick={onSubmit}
           >
             Continue
           </button>
