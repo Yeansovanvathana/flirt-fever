@@ -10,7 +10,7 @@ import { useRecoilState } from "recoil";
 import { activeFormState, activeTabState } from "../../../../../service/recoil";
 import { useForm } from "react-hook-form";
 import { createUserParam } from "@/utils/type";
-import { registerApi } from "@/service/axios/api";
+import { AuthRegister } from "@/service/api/auth";
 
 const UserDetailForm = () => {
   const [_, setActiveTab] = useRecoilState(activeTabState);
@@ -29,7 +29,7 @@ const UserDetailForm = () => {
   const onSubmit = async (data: createUserParam) => {
     console.log(data);
     try {
-      await registerApi(data);
+      await AuthRegister(data);
       setActiveTab("verifyOtpTab");
     } catch (e) {
       console.log(e);
@@ -41,6 +41,7 @@ const UserDetailForm = () => {
       <form
         className="flex flex-col justify-evenly h-screen py-12 max-w-sm"
         onSubmit={handleSubmit(onSubmit)}
+        autoComplete="off"
       >
         <div className="space-y-6">
           <h1 className="text-center font-semibold text-lg md:text-xl">
