@@ -8,19 +8,33 @@ import {
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { useRecoilState } from "recoil";
 import { activeFormState, activeTabState } from "../../../../../service/recoil";
+import { useForm } from "react-hook-form";
 
 const UserDetailForm = () => {
   const [_, setActiveTab] = useRecoilState(activeTabState);
   const [__, setFormState] = useRecoilState(activeFormState);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const handleChange = () => {
     setFormState("login");
   };
-  const handleSubmit = () => {
+  console.log(errors);
+  const onSubmit = (data: any) => {
+    console.log(data);
     setActiveTab("verifyOtpTab");
   };
+
   return (
     <div className="flex justify-center items-center px-5">
-      <div className="flex flex-col justify-evenly h-screen py-12 max-w-sm">
+      <form
+        className="flex flex-col justify-evenly h-screen py-12 max-w-sm"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="space-y-6">
           <h1 className="text-center font-semibold text-lg md:text-xl">
             Sign Up
@@ -37,6 +51,7 @@ const UserDetailForm = () => {
                 type="text"
                 placeholder="Enter your username"
                 className="outline-none w-full bg-transparent text-sm"
+                {...register("username", { required: "username is required" })}
               />
               <QuestionMarkCircleIcon className="icon" />
             </div>
@@ -46,6 +61,7 @@ const UserDetailForm = () => {
                 type="text"
                 placeholder="Enter your email"
                 className="outline-none w-full bg-transparent text-sm"
+                {...register("email", { required: "email is required" })}
               />
               <QuestionMarkCircleIcon className="icon" />
             </div>
@@ -55,6 +71,7 @@ const UserDetailForm = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="outline-none w-full bg-transparent text-sm"
+                {...register("password", { required: "password is required" })}
               />
               <QuestionMarkCircleIcon className="icon" />
             </div>
@@ -82,7 +99,7 @@ const UserDetailForm = () => {
         <div className="space-y-4 pt-10">
           <button
             className="flex justify-center p-3 text-white w-full bg-gradient-to-r from-Gradient1-50 to-Gradient1-100 rounded-full font-semibold"
-            onClick={handleSubmit}
+            onClick={onSubmit}
           >
             Continue
           </button>
@@ -107,7 +124,7 @@ const UserDetailForm = () => {
             .
           </p>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
