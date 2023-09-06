@@ -4,8 +4,8 @@ import { useRecoilState } from "recoil";
 import { activeFormState } from "@/service/recoil";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { loginApi } from "@/service/axios/api";
 import { userCredentialParam } from "@/utils/type";
+import { AuthLogin } from "@/service/api/auth";
 
 const LoginForm = () => {
   const [_, setFormState] = useRecoilState(activeFormState);
@@ -24,7 +24,7 @@ const LoginForm = () => {
   const submitForm = async (data: userCredentialParam) => {
     console.log(data);
     try {
-      await loginApi(data);
+      await AuthLogin(data);
     } catch (e) {
       console.log(e);
     }
@@ -53,25 +53,40 @@ const LoginForm = () => {
               </p>
 
               <div className="space-y-5 pt-10">
-                <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
-                  <EnvelopeIcon className="icon" />
-                  <input
-                    type="text"
-                    placeholder="Enter your email"
-                    className="outline-none w-full bg-transparent text-sm"
-                    {...register("email", { required: "email is required" })}
-                  />
+                <div>
+                  <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
+                    <EnvelopeIcon className="icon" />
+                    <input
+                      type="text"
+                      placeholder="Enter your email"
+                      className="outline-none w-full bg-transparent text-sm"
+                      {...register("email", { required: "email is required" })}
+                    />
+                  </div>
+                  {errors.email && (
+                    <p className="pl-4 text-red-500 text-sm mt-2">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
-                <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
-                  <LockClosedIcon className="icon" />
-                  <input
-                    type="password"
-                    placeholder="Enter your password"
-                    className="outline-none w-full bg-transparent text-sm"
-                    {...register("password", {
-                      required: "password is required",
-                    })}
-                  />
+
+                <div>
+                  <div className="p-3 border-2 border-AuroMetalSaurus-100 rounded-full flex items-center space-x-3 text-AuroMetalSaurus-400">
+                    <LockClosedIcon className="icon" />
+                    <input
+                      type="password"
+                      placeholder="Enter your password"
+                      className="outline-none w-full bg-transparent text-sm"
+                      {...register("password", {
+                        required: "password is required",
+                      })}
+                    />
+                  </div>
+                  {errors.password && (
+                    <p className="pl-4 text-red-500 text-sm mt-2">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
