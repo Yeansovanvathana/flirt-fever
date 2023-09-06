@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getUserInfo } from "../api/user";
@@ -25,7 +26,7 @@ type Props = {
 export function AuthProvider({ children }: Props) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
@@ -74,7 +75,7 @@ export function AuthProvider({ children }: Props) {
 
   const logout = () => {
     clearTokens();
-    router.push("/login"); // Redirect to the login page after logout
+    // router.push("/login"); // Redirect to the login page after logout
   };
 
   const isAuthenticated = () => {
