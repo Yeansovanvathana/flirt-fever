@@ -1,15 +1,15 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-// import { getCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 
 // create asn axios instance function
 export default function createAxiosInstance(): AxiosInstance {
-  // const token = getCookie("accessToken");
+  const token = getCookie("accessToken");
 
   const client = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    // headers: {
-    //   Authorization: "Bearer " + token,
-    // },
+    headers: {
+      Authorization: "Bearer " + token,
+    },
   });
 
   // write an axios interceptors response handler

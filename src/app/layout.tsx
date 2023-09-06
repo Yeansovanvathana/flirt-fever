@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import RecoidContextProvider from "./recoilContextProvider";
+import RecoidContextProvider from "../service/recoil/recoilContextProvider";
+import { AuthProvider } from "@/service/auth/auth";
 
 export const metadata: Metadata = {
   title: "Flirt Fever",
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <RecoidContextProvider>{children}</RecoidContextProvider>
+        <RecoidContextProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </RecoidContextProvider>
       </body>
     </html>
   );
