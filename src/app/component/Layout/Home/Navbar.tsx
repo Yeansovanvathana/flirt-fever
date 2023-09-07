@@ -1,6 +1,25 @@
+"use client";
+
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { activeTabMenu } from "@/service/recoil";
 
 const Navbar = () => {
+  const activeMenu = useRecoilValue(activeTabMenu);
+  console.log(activeMenu);
+
+  if (activeMenu !== "homePage") {
+    return (
+      <nav className="top-0 py-5 px-2 max-auto w-screen">
+        <div className="flex items-center justify-center mx-auto max-w-screen-sm px-4">
+          <div>
+            <img src="logo/Primary Logo.svg" alt="" />
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <nav className="top-0 py-5 px-2 max-auto w-screen">
       <div className="flex items-center justify-between mx-auto max-w-screen-sm px-4">

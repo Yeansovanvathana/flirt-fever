@@ -9,7 +9,9 @@ export default function Home() {
     <main className="flex min-h-screen max-w-screen-sm">
       <div>
         <Navbar />
-        <MenuMain />
+        <div className="my-10">
+          <MenuMain />
+        </div>
         <Menu />
       </div>
     </main>
