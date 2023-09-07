@@ -13,7 +13,7 @@ const DynamicTinderCard = dynamic(() => import("react-tinder-card"), {
 
 const FlirtCard = () => {
   return (
-    <div className="py-20 flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <div className="w-[90vw] h-[300px] max-w-[300px]">
         {People.map((character, index) => (
           <DynamicTinderCard
