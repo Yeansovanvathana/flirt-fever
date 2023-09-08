@@ -1,30 +1,51 @@
+"use client";
+
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import React, { use } from "react";
 import { useRecoilState } from "recoil";
 import { activeFormState } from "@/service/recoil";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { userCredentialParam } from "@/utils/type";
 import { AuthLogin } from "@/service/api/auth";
+import { getCookie, setCookie } from "cookies-next";
+// import { useRouter } from "next/router";
 
 const LoginForm = () => {
   const [_, setFormState] = useRecoilState(activeFormState);
+  const user = getCookie("userName");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<userCredentialParam>();
+  // const router = useRouter();
 
-  console.log(errors);
+  // console.log(user);
 
   const handleChange = () => {
     setFormState("register");
   };
 
-  const submitForm = async (data: userCredentialParam) => {
-    console.log(data);
+  const submitForm: SubmitHandler<userCredentialParam> = async ({
+    email,
+    password,
+  }) => {
+    // console.log(data);
     try {
-      await AuthLogin(data);
+      const res = await AuthLogin({ email, password });
+      // console.log(res);
+
+      const data = await res.data;
+
+      const accessToken = data["access_token"];
+      const user = data["user_name"];
+      // const username = data.username;
+
+      // set access token to cookies using next-cookies
+      setCookie("accessToken", accessToken);
+      setCookie("userName", user);
+      // router.push("/");
     } catch (e) {
       console.log(e);
     }

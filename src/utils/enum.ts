@@ -11,7 +11,9 @@ export const API_ENDPOINT = {
     REGISTER: "/auth/register",
   },
   USER: {
-    INFO: "/user/",
+    // INFO: "/users",
+    INFO: (username: string) => "/users/username/" + username,
+
     INFO_UPDATE: (id: string) => "/user/",
     GET_FAVORITES: (id: string) => "/user/" + id + "/favorites",
   },
