@@ -4,9 +4,9 @@ import { API_ENDPOINT } from "@/utils/enum";
 
 const axiosClient: AxiosInstance = createAxiosInstance();
 
-export async function getUserInfo(token: string) {
+export async function getUserInfo(token: string, username: string) {
   try {
-    const response = await axiosClient.get(API_ENDPOINT.USER.INFO, {
+    const response = await axiosClient.get(API_ENDPOINT.USER.INFO(username), {
       headers: {
         Authorization: `Bearer ${token}`,
       },

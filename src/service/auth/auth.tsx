@@ -32,10 +32,13 @@ export function AuthProvider({ children }: Props) {
     const checkUserLoggedIn = async () => {
       try {
         const accessToken = getCookie("accessToken");
+        const userName: string = getCookie("userName") as string;
+        console.log(userName);
 
         if (accessToken) {
-          const response = await getUserInfo(accessToken);
+          const response = await getUserInfo(accessToken, userName);
           const data = response.data;
+          // console.log(data);
 
           if (data) {
             setUser(data);

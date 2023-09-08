@@ -5,10 +5,11 @@ import { API_ENDPOINT } from "@/utils/enum";
 
 const axiosClient: AxiosInstance = createAxiosInstance();
 
-export async function AuthLogin(formData: userCredentialParam) {
+export async function AuthLogin({ email, password }: userCredentialParam) {
   try {
     const response = await axiosClient.post(API_ENDPOINT.AUTH.LOGIN, {
-      formData,
+      email,
+      password,
     });
 
     return response;
