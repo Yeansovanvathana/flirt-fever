@@ -1,8 +1,8 @@
 "use client";
 import { createContext, useContext, useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import { getUserInfo } from "../api/user";
 import { setCookie, getCookie, deleteCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 // Provide default values for user and loading
 const defaultAuthContext = {
@@ -26,10 +26,11 @@ type Props = {
 export function AuthProvider({ children }: Props) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
+      router.refresh();
       try {
         const accessToken = getCookie("accessToken");
         const userName: string = getCookie("userName") as string;
