@@ -9,19 +9,16 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { userCredentialParam } from "@/utils/type";
 import { AuthLogin } from "@/service/api/auth";
 import { getCookie, setCookie } from "cookies-next";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [_, setFormState] = useRecoilState(activeFormState);
-  const user = getCookie("userName");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<userCredentialParam>();
-  // const router = useRouter();
-
-  // console.log(user);
+  const router = useRouter();
 
   const handleChange = () => {
     setFormState("register");
@@ -40,12 +37,11 @@ const LoginForm = () => {
 
       const accessToken = data["access_token"];
       const user = data["user_name"];
-      // const username = data.username;
 
       // set access token to cookies using next-cookies
       setCookie("accessToken", accessToken);
       setCookie("userName", user);
-      // router.push("/");
+      router.push("/");
     } catch (e) {
       console.log(e);
     }
