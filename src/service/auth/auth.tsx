@@ -10,7 +10,6 @@ const defaultAuthContext = {
   loading: true, // Provide default empty functions
   logout: () => {},
   isAuthenticated: () => false,
-  getAccessToken: () => {},
 };
 
 const AuthContext = createContext(defaultAuthContext);
@@ -43,8 +42,6 @@ export function AuthProvider({ children }: Props) {
 
           if (data) {
             setUser(data);
-          } else {
-            clearTokens();
           }
         } else {
           clearTokens();
@@ -87,10 +84,6 @@ export function AuthProvider({ children }: Props) {
     return !!accessToken;
   };
 
-  const getAccessToken = () => {
-    return localStorage.getItem("accessToken");
-  };
-
   return (
     <AuthContext.Provider
       value={{
@@ -98,7 +91,6 @@ export function AuthProvider({ children }: Props) {
         loading,
         logout,
         isAuthenticated,
-        getAccessToken,
       }}
     >
       {children}

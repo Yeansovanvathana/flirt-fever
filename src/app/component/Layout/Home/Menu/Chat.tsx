@@ -1,9 +1,28 @@
-import React from "react";
+import { getMatching } from "@/service/api/matching";
+import { useAuth } from "@/service/auth/auth";
+import { get } from "http";
+import React, { use, useEffect } from "react";
+import { getCookie } from "cookies-next";
 // import { io } from "socket.io-client";
 
 // const socket = io("http://localhost:3001");
 
 const Chat = () => {
+  const token: string = getCookie("accessToken") as string;
+
+  useEffect(() => {
+    const getMatchingData = async () => {
+      try {
+        const res = await getMatching(token);
+        const data = await res.data;
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getMatchingData();
+  }, []);
+
   return (
     <div className="px-2 max-auto w-screen">
       <div className="mx-auto max-w-screen-sm px-4 ">
@@ -32,3 +51,6 @@ const Chat = () => {
 };
 
 export default Chat;
+function GetData() {
+  throw new Error("Function not implemented.");
+}
