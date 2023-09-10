@@ -51,6 +51,3 @@ const Chat = () => {
 };
 
 export default Chat;
-function GetData() {
-  throw new Error("Function not implemented.");
-}
