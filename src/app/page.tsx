@@ -1,9 +1,9 @@
 "use client";
 import LoadingPage from "./component/LoadingPage";
-import FlirtCard from "./component/Layout/Home/Menu/FlirtCard";
+import FlirtCard from "./component/Layout/Menu/FlirtCard";
 import Navbar from "./component/Layout/Home/Navbar";
 import Menu from "./component/Layout/Home/Menu";
-import MenuMain from "./component/Layout/Home/Menu/Tab/MenuMain";
+import MenuMain from "./component/Layout/Menu/Tab/MenuMain";
 import { useAuth } from "@/service/auth/auth";
 
 export default function Home() {
