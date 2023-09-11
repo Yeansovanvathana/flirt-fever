@@ -8,7 +8,7 @@ export default function Home() {
   console.log(user);
   // console.log(loading);
   return (
-    <main className="mt-10">
+    <main>
       <MenuMain />
     </main>
   );
