@@ -5,7 +5,7 @@ import { activeTabMenu } from "@/service/recoil";
 import { useRecoilValue } from "recoil";
 import FlirtCard from "../FlirtCard";
 import Post from "../Post";
-import Chat from "../Chat";
+import Chat from "../Chat/Chat";
 import Notification from "../Notification";
 import Profile from "../Profile";
 

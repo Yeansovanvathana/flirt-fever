@@ -42,6 +42,7 @@ const LoginForm = () => {
       setCookie("accessToken", accessToken);
       setCookie("userName", user);
       router.push("/");
+      router.refresh();
     } catch (e) {
       console.log(e);
     }
