@@ -3,10 +3,11 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { getUserInfo } from "../api/user";
 import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
+import { User } from "@/utils/type";
 
 // Provide default values for user and loading
 const defaultAuthContext = {
-  user: null,
+  user: null as User | null,
   loading: true, // Provide default empty functions
   logout: () => {},
   isAuthenticated: () => false,
@@ -23,7 +24,7 @@ type Props = {
 };
 
 export function AuthProvider({ children }: Props) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
