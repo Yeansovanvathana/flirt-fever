@@ -3,11 +3,11 @@ import React from "react";
 
 const MessageInput = () => {
   return (
-    <div className="fixed bottom-5 flex p-3 border-2 border-AuroMetalSaurus-100 rounded-full items-center justify-center text-AuroMetalSaurus-400 cursor-pointer">
+    <div className="flex items-center justify-center p-3 border-2 border-AuroMetalSaurus-100 rounded-full text-AuroMetalSaurus-400 cursor-pointer">
       <input
         type="text"
         placeholder="Message"
-        className="outline-none bg-transparent text-sm pl-3"
+        className="outline-none bg-transparent text-sm pl-3 w-full"
       />
       <NavigationSvg />
     </div>

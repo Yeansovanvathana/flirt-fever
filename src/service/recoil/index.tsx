@@ -1,4 +1,4 @@
-import { Conversation } from "@/utils/type";
+import { Conversation, Message } from "@/utils/type";
 import { atom } from "recoil";
 
 export const activeTabState = atom({
@@ -19,4 +19,9 @@ export const activeTabMenu = atom({
 export const conversationsValue = atom({
   key: "conversationsValue",
   default: [] as Conversation[], // Ensure the default value matches the type
+});
+
+export const messageValue = atom({
+  key: "messageValue",
+  default: [] as Message[], // Ensure the default value matches the type
 });
