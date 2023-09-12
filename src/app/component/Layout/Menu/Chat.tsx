@@ -6,11 +6,13 @@ import { getCookie } from "cookies-next";
 import { Conversation } from "@/utils/type";
 import { useAuth } from "@/service/auth/auth";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { conversationsValue } from "@/service/recoil";
 
 const Chat = () => {
   const { user } = useAuth();
   const token: string = getCookie("accessToken") as string;
-  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [conversations, setConversations] = useRecoilState(conversationsValue);
 
   // console.log(user?.id);
   useEffect(() => {
@@ -22,7 +24,7 @@ const Chat = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, [conversations]);
+  }, []);
 
   const getDisplayUser = (conversation: Conversation) => {
     return conversation.toUser.id == user?.id
@@ -35,7 +37,7 @@ const Chat = () => {
       <div className="mx-auto max-w-screen-sm px-4 ">
         {conversations.map((conversation, idx) => (
           <Link
-            href={`/chat/${getDisplayUser(conversation).username}`}
+            href={`/chat/${conversation.id}`}
             className="flex w-full justify-between cursor-pointer hover:bg-AuroMetalSaurus-100 p-2"
             key={idx}
           >

@@ -20,9 +20,9 @@ function MainLayout({ children }: Props) {
         <div className="flex flex-col min-h-screen">
           {!(router === "/auth") ? <Navbar /> : null}
           <div className="flex-grow">
-            <div className="h-full mt-10">{children}</div>
+            <div className="h-full">{children}</div>
           </div>
-          {!(router === "/auth") && <Menu />}
+          {!(router === "/auth") && !router.includes("/chat") && <Menu />}
         </div>
       ) : (
         <LoadingPage />

@@ -24,4 +24,7 @@ export const API_ENDPOINT = {
     GET_MATCHING_REQUEST: "/matching/requests",
     DELETE_MATCHING: (id: string) => "/matching" + id,
   },
+  MESSAGE: {
+    GET_MESSAGE: (id: number) => "/message/" + id,
+  },
 };
