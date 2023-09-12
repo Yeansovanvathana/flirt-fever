@@ -26,5 +26,6 @@ export const API_ENDPOINT = {
   },
   MESSAGE: {
     GET_MESSAGE: (id: number) => "/message/" + id,
+    POST_MESSAGE: "/message",
   },
 };
