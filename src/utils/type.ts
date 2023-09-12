@@ -30,3 +30,10 @@ export type Conversation = {
   fromUser: User;
   toUser: User;
 };
+
+export type Message = {
+  id: number;
+  content: string;
+  createAt: string;
+  author: User;
+};
