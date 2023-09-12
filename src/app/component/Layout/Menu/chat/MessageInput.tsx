@@ -31,13 +31,14 @@ const MessageInput: FC<pageProps> = ({ conversationId }) => {
 
   return (
     <form
-      className="flex items-center justify-center p-3 border-2 border-AuroMetalSaurus-100 rounded-full text-AuroMetalSaurus-400 cursor-pointer"
+      className="flex  items-center justify-center p-3 border-2 border-AuroMetalSaurus-100 rounded-full text-AuroMetalSaurus-400 cursor-pointer"
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
         type="text"
         {...register("content")} // Register the input field with react-hook-form
         placeholder="Message"
+        autoComplete="off" // Set autocomplete to "off"
         className="outline-none bg-transparent text-sm pl-3 w-full"
       />
       <button type="submit">
