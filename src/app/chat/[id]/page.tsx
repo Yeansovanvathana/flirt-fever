@@ -2,14 +2,15 @@
 import { getMessage } from "@/service/api/chat";
 import { useAuth } from "@/service/auth/auth";
 import { conversationsValue, messageValue } from "@/service/recoil";
-import { Conversation } from "@/utils/type";
+import { Conversation, MessageEventPayload } from "@/utils/type";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import { getCookie } from "cookies-next";
-import { FC, useEffect } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
 import MessageContainer from "@/app/component/Layout/Menu/chat/MessageContainer";
 import MessageInput from "@/app/component/Layout/Menu/chat/MessageInput";
+import { SocketContext } from "@/utils/context/SocketContext";
 
 interface pageProps {
   params: { id: number };
@@ -21,6 +22,7 @@ const page: FC<pageProps> = ({ params }) => {
   const conversations = useRecoilValue(conversationsValue);
   const router = useRouter();
   const [_, setMessages] = useRecoilState(messageValue);
+  const socket = useContext(SocketContext);
 
   const getUser = conversations.filter((user) => user.id == params.id);
   console.log("from me", getUser);
@@ -39,7 +41,20 @@ const page: FC<pageProps> = ({ params }) => {
       .catch((e) => {
         console.log(e);
       });
-  });
+  }, [params.id]);
+
+  useEffect(() => {
+    // console.log(socket);
+    socket.on("connected", () => console.log("connected"));
+    socket.on("onMessage", (payload: MessageEventPayload) => {
+      const { conversation, ...message } = payload;
+      setMessages((prev) => [message, ...prev]);
+    });
+    return () => {
+      socket.off("connected");
+      socket.off("onMessage");
+    };
+  }, []);
 
   const handleBack = () => {
     router.back();
@@ -75,7 +90,7 @@ const page: FC<pageProps> = ({ params }) => {
         </div>
         <MessageContainer />
 
-        <MessageInput />
+        <MessageInput conversationId={params.id} />
       </div>
     </div>
   );
