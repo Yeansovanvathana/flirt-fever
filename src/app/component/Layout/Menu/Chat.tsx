@@ -14,12 +14,10 @@ const Chat = () => {
   const token: string = getCookie("accessToken") as string;
   const [conversations, setConversations] = useRecoilState(conversationsValue);
 
-  // console.log(user?.id);
   useEffect(() => {
     getMatching(token)
       .then(({ data }) => {
         setConversations(data);
-        // console.log(data);
       })
       .catch((e) => {
         console.log(e);
