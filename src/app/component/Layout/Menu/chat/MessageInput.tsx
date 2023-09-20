@@ -16,7 +16,6 @@ const MessageInput: FC<pageProps> = ({ conversationId }) => {
   console.log(user?.username, conversationId);
   const username = user?.username!;
   const conversation = Number(conversationId);
-  // console.log(typeof conversation);
 
   const onSubmit = (data: any) => {
     try {
