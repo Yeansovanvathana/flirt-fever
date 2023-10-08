@@ -4,7 +4,6 @@ import { People } from "@/utils/People";
 import dynamic from "next/dynamic";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import NotificationSvg from "@/app/component/icon/NotificationSvg";
 import ChatSvg from "@/app/component/icon/ChatSvg";
 
 const DynamicTinderCard = dynamic(() => import("react-tinder-card"), {
@@ -13,8 +12,8 @@ const DynamicTinderCard = dynamic(() => import("react-tinder-card"), {
 
 const FlirtCard = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className="w-[90vw] h-[300px] max-w-[300px]">
+    <div className="flex justify-center items-center h-[830px]">
+      <div className="w-[90vw] h-[300px] max-w-[300px] flex items-center">
         {People.map((character, index) => (
           <DynamicTinderCard
             preventSwipe={["up", "down"]}

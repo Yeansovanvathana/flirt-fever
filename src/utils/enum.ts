@@ -8,7 +8,7 @@ export enum HomePageTab {
 export const API_ENDPOINT = {
   AUTH: {
     LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
+    REGISTER: "/auth/signup",
   },
   USER: {
     // INFO: "/users",
