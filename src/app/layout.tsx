@@ -3,10 +3,7 @@ import type { Metadata } from "next";
 import RecoidContextProvider from "../utils/context/recoilContextProvider";
 import { AuthProvider } from "@/service/auth/auth";
 import MainLayout from "./component/MainLayout";
-import SocketProvider, {
-  SocketContext,
-  socket,
-} from "@/utils/context/SocketContext";
+import SocketProvider from "@/utils/context/SocketContext";
 
 export const metadata: Metadata = {
   title: "Flirt Fever",
@@ -24,11 +21,9 @@ export default function RootLayout({
       <body>
         <RecoidContextProvider>
           <AuthProvider>
-            {/* <SocketContext.Provider value={socket}> */}
             <SocketProvider>
               <MainLayout>{children}</MainLayout>
             </SocketProvider>
-            {/* </SocketContext.Provider> */}
           </AuthProvider>
         </RecoidContextProvider>
       </body>

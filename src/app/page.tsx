@@ -2,8 +2,9 @@
 
 import MenuMain from "./component/Layout/Menu/Tab/MenuMain";
 import { useAuth } from "@/service/auth/auth";
+import withAuth from "@/service/api/withAuth";
 
-export default function Home() {
+const Home = () => {
   const { user, loading } = useAuth();
   console.log(user);
   // console.log(loading);
@@ -12,4 +13,6 @@ export default function Home() {
       <MenuMain />
     </main>
   );
-}
+};
+
+export default Home;

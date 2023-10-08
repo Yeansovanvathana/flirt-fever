@@ -5,6 +5,7 @@ import { useAuth } from "@/service/auth/auth";
 import Navbar from "./Layout/Home/Navbar";
 import Menu from "./Layout/Home/Menu";
 import { usePathname } from "next/navigation";
+import withAuth from "@/service/api/withAuth";
 
 type Props = {
   children: React.ReactNode;
@@ -31,4 +32,4 @@ function MainLayout({ children }: Props) {
   );
 }
 
-export default MainLayout;
+export default withAuth(MainLayout);
